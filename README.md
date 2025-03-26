@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Student Interview
 A career help hub for college students looking to secure their next job. 
 
@@ -20,3 +21,6 @@ For our midterm project in ASE 230, we were tasked to team up with our peers and
 3. **Install Dependencies**: `npm install`
 4. **Run the Application**: `npm start`
 5. **Access the Application**: Open your browser and go to `http://localhost:3000`
+=======
+# Version2-Norese-Interview-
+>>>>>>> 15833baf5a0251e9f01dc6761652c639c25bd393

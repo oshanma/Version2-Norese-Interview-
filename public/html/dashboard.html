@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/assets/icons/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" href="/assets/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon/apple-touch-icon.png" />
+
+  <!-- Meta Info -->
+  <meta name="description" content="Manage your Norse Interview courses and settings." />
+  <meta name="keywords" content="dashboard, interview, NKU, Norse" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/style.min.css" />
+
+  <style>
+    :root {
+        --primary-color: #5e72e4;
+        --text-color: #333;
+        --hover-bg: #f8f9fa;
+        --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar {
+        background: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        padding: 0.75rem 0;
+    }
+
+    .navbar-brand {
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .nav-link {
+        color: #333 !important;
+        padding: 0.75rem 1rem !important;
+        font-weight: 500;
+        transition: color 0.2s ease;
+        white-space: nowrap;
+    }
+
+    .nav-link:hover {
+        color: #2962ff !important;
+    }
+
+    .nav-link.active {
+        color: #2962ff !important;
+    }
+
+    .dropdown-menu {
+        border: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1.25rem;
+        font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f8f9fa;
+        color: #2962ff;
+    }
+
+    /* Add margin-top to main content to account for fixed navbar */
+    main {
+        margin-top: 76px;
+    }
+
+    /* Ensure proper spacing in navbar */
+    .navbar .container {
+        justify-content: space-between;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 991.98px) {
+        .navbar-toggler {
+            display: block;
+        }
+
+        .d-flex.align-items-center.justify-content-end {
+            display: none !important;
+        }
+
+        .navbar-expanded .d-flex.align-items-center.justify-content-end {
+            display: flex !important;
+            flex-direction: column;
+            align-items: flex-start !important;
+            width: 100%;
+        }
+    }
+
+    /* Card Styling */
+    .card {
+        border: none;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Stats Cards */
+    .stat-card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .stats-container {
+        margin-bottom: 2rem;
+    }
+
+    /* Dashboard Card */
+    .dashboard-card {
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease;
+        border: none;
+        overflow: hidden;
+    }
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Buttons */
+    .btn-primary {
+        background-color: var(--primary-color);
+        border: none;
+    }
+
+    .btn-outline-primary {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+    }
+
+    /* Welcome Section */
+    h1 {
+      font-weight: 700;
+      color: var(--nku-black);
+    }
+
+    h1 .username {
+      color: var(--nku-gold);
+    }
+
+    /* Course Cards */
+    .course-card {
+      background: var(--nku-white);
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .course-card:hover {
+      border-color: var(--nku-gold);
+    }
+
+    .course-card .card-img-top {
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+
+    .badge {
+      background-color: var(--nku-gold) !important;
+      color: var(--nku-black);
+      font-weight: 600;
+    }
+
+    /* Progress Indicators */
+    .progress {
+      height: 6px;
+      border-radius: 3px;
+    }
+
+    .progress-bar {
+      background-color: var(--nku-gold);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--nku-gray);
+      border-top: 3px solid var(--nku-gold);
+    }
+
+    footer p {
+      color: var(--nku-dark-gray) !important;
+    }
+
+    /* Add gradient background */
+    body {
+        background: #2962ff;
+        min-height: 100vh;
+    }
+
+    .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+        color: white;
+    }
+
+    /* Welcome section styling */
+    .welcome-section {
+        margin-bottom: 40px;
+    }
+
+    .welcome-section h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 8px;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Cards Container */
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 30px;
+    }
+
+    /* Card Styling */
+    .feature-card {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-card.practice-set {
+        background: #fff;
+    }
+
+    .feature-card.course {
+        background: #fff;
+    }
+
+    .card-badge {
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .practice-set .card-badge {
+        color: #ff52c1;
+    }
+
+    .course .card-badge {
+        color: #2962ff;
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .feature-card p {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .progress-info {
+        color: #666;
+        font-size: 0.875rem;
+        margin-bottom: 20px;
+        margin-top: auto;
+    }
+
+    .action-button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        width: fit-content;
+    }
+
+    .practice-set .action-button {
+        background: #ff52c1;
+        color: white;
+    }
+
+    .course .action-button {
+        background: #2962ff;
+        color: white;
+    }
+
+    /* Footer */
+    footer {
+        margin-top: 60px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- START NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <!-- Left side: Logo and Brand -->
+        <div class="d-flex align-items-center">
+            <img src="../assets/images/nku.jpg" alt="NKU Logo" height="30">
+            <span class="navbar-brand ms-2">NORSE INTERVIEW</span>
+        </div>
+
+        <!-- All navigation links and user menu pushed to far right -->
+        <div class="d-flex align-items-center justify-content-end flex-grow-1">
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+            <a class="nav-link" href="assignments.html">Assignments</a>
+            
+            <!-- Learn Dropdown -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Learn
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="curriculum.html">Curriculum</a></li>
+                    <li><a class="dropdown-item" href="#">My Certificates</a></li>
+                </ul>
+            </div>
+            
+            <!-- Practice Dropdown -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Practice
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Mock Interviews</a></li>
+                    <li><a class="dropdown-item" href="#">Practice Questions</a></li>
+                </ul>
+            </div>
+            
+            <a class="nav-link" href="resume-builder.html">Resume Builder</a>
+
+            <!-- User Menu -->
+            <div class="dropdown ms-3">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+  <!-- END NAVBAR -->
+
+  <!-- START DASHBOARD -->
+  <main class="main-container">
+    <div class="welcome-section">
+        <h1>Hello, Admin! 👋</h1>
+        <p>Here's an overview of your current activity.</p>
+    </div>
+
+    <div class="cards-container">
+        <!-- Practice Set Card -->
+        <div class="feature-card practice-set">
+            <span class="card-badge">PRACTICE SET</span>
+            <h3>Interview Practice</h3>
+            <p>Complete mock interview assignments from your organization.</p>
+            <div class="progress-info">
+                0/10 Answered
+            </div>
+            <button class="action-button" onclick="window.location.href='curriculum.html'">Continue</button>
+        </div>
+
+        <!-- Course Card -->
+        <div class="feature-card course">
+            <span class="card-badge">COURSE</span>
+            <h3>Best Practices</h3>
+            <p>Learn essential best practices for successful interviews.</p>
+            <div class="progress-info">
+                0% Complete
+            </div>
+            <button class="action-button" onclick="window.location.href='curriculum.html'">Start Learning</button>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Student Interview. All rights reserved.
+    </footer>
+  </main>
+  <!-- END DASHBOARD -->
+
+  <!-- Scripts -->
+  <script src="/scripts/bootstrap.bundle.min.js"></script>
+  <script src="/scripts/gumshoe.polyfills.min.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/dashboard.js"></script>
+
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Add this script for mobile menu toggle -->
+  <script>
+    document.querySelector('.navbar-toggler')?.addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('navbar-expanded');
+    });
+  </script>
+</body>
+</html>

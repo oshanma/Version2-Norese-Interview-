@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Norse Interview</title>
+    
+    <!-- Include your existing CSS files -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Logo and Brand -->
+            <div class="d-flex align-items-center">
+                <img src="../assets/images/nku.jpg" alt="NKU Logo" height="30">
+                <span class="navbar-brand ms-2">NORSE INTERVIEW</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="assignments.html">Assignments</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Learn
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="curriculum.html">Curriculum</a></li>
+                            <li><a class="dropdown-item" href="#">My Certificates</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Practice
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mock Interviews</a></li>
+                            <li><a class="dropdown-item" href="#">Practice Questions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume-builder.html">Resume Builder</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side - User Menu -->
+            <div class="d-flex align-items-center">
+                <img src="../assets/images/nku-logo.png" alt="NKU" height="40" class="me-3">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="container">
+            <div class="header-content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1>Hi, <span class="username">Admin</span>. Continue learning!</h1>
+                    </div>
+                    <!-- Add Course Button (visible only for admin) -->
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCourseModal">
+                        <i class="fas fa-plus"></i> Add Course
+                    </button>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Curriculum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Certificates</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Add Course Modal -->
+    <div class="modal fade" id="addCourseModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Course</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCourseForm">
+                        <div class="mb-3">
+                            <label class="form-label">Course Title</label>
+                            <input type="text" class="form-control" id="courseTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Course Type</label>
+                            <select class="form-select" id="courseType" required>
+                                <option value="technical">Technical Interview</option>
+                                <option value="behavioral">Behavioral Interview</option>
+                                <option value="resume">Resume Building</option>
+                                <option value="linkedin">LinkedIn Optimization</option>
+                                <option value="networking">Networking</option>
+                                <option value="jobsearch">Job Search</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Number of Lessons</label>
+                            <input type="number" class="form-control" id="courseLessons" required min="0">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" id="courseDescription" rows="3" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveCourseBtn">Save Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Main Tracks -->
+            <div class="main-tracks">
+                <div class="track-card">
+                    <div class="track-info">
+                        <h2>Fast Track</h2>
+                        <div class="lessons-count">16 VIDEO LESSONS</div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 3%"></div>
+                        </div>
+                    </div>
+                    <div class="track-icon">
+                        <i class="fas fa-bolt fa-2x" style="color: #0061ff"></i>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-info mastery">
+                        <h2>Mastery Track</h2>
+                        <div class="lessons-count">50 VIDEO LESSONS</div>
+                    </div>
+                    <div class="track-icon mastery">
+                        <i class="fas fa-star fa-2x" style="color: #00875A"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Grid -->
+            <div class="course-grid" id="course-container">
+                <!-- Courses will be populated here by JavaScript -->
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-section">
+                <h2>We're here to help!</h2>
+                <p>Our Help Center is full of valuable insights. Check some of our articles.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include your footer -->
+    <footer class="bg-light py-4 mt-5">
+        <!-- ... your existing footer code ... -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Fetch courses from API
+            async function fetchCourses() {
+                try {
+                    const response = await fetch('/api/courses');
+                    const data = await response.json();
+                    return data.courses;
+                } catch (error) {
+                    console.error('Error fetching courses:', error);
+                    return [];
+                }
+            }
+
+            // Render course card
+            function renderCourseCard(course) {
+                return `
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="${getIconForCourse(course.type)} fa-lg" style="color: #0061ff"></i>
+                        </div>
+                        <div class="course-info">
+                            <h3>${course.title}</h3>
+                            <p>${course.lessons || 0} VIDEO LESSONS</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Helper function to get icon based on course type
+            function getIconForCourse(type) {
+                const icons = {
+                    'interview': 'fas fa-comments',
+                    'job-search': 'fas fa-search',
+                    'resume': 'fas fa-file-alt',
+                    'written': 'fas fa-pen',
+                    'negotiation': 'fas fa-handshake',
+                    'first-90-days': 'fas fa-calendar-check'
+                };
+                return icons[type] || 'fas fa-graduation-cap';
+            }
+
+            // Initialize
+            const courses = await fetchCourses();
+            const courseContainer = document.getElementById('course-container');
+            courseContainer.innerHTML = courses.map(renderCourseCard).join('');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Save course button click handler
+            document.getElementById('saveCourseBtn').addEventListener('click', async function() {
+                const title = document.getElementById('courseTitle').value;
+                const type = document.getElementById('courseType').value;
+                const lessons = document.getElementById('courseLessons').value;
+                const description = document.getElementById('courseDescription').value;
+
+                if (!title || !type || !lessons || !description) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                const newCourse = {
+                    id: Date.now().toString(), // Generate a unique ID
+                    title,
+                    type,
+                    lessons: parseInt(lessons),
+                    description,
+                    videoLessons: parseInt(lessons),
+                    completion: 0
+                };
+
+                try {
+                    const response = await fetch('/api/courses', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(newCourse)
+                    });
+
+                    if (response.ok) {
+                        // Close modal
+                        const modal = bootstrap.Modal.getInstance(document.getElementById('addCourseModal'));
+                        modal.hide();
+                        
+                        // Reset form
+                        document.getElementById('addCourseForm').reset();
+                        
+                        // Refresh course list
+                        location.reload();
+                    } else {
+                        throw new Error('Failed to add course');
+                    }
+                } catch (error) {
+                    console.error('Error adding course:', error);
+                    alert('Failed to add course. Please try again.');
+                }
+            });
+
+            // Check if user is admin and show/hide add course button
+            async function checkAdmin() {
+                try {
+                    const response = await fetch('/api/users/current');
+                    const user = await response.json();
+                    if (!user.isAdmin) {
+                        document.querySelector('[data-bs-target="#addCourseModal"]').style.display = 'none';
+                    }
+                } catch (error) {
+                    console.error('Error checking admin status:', error);
+                }
+            }
+
+            checkAdmin();
+        });
+    </script>
+</body>
+</html> 

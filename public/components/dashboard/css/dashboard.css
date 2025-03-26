@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(to bottom, #004fc9 0%, #f8f9fa 40%);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+  .greeting {
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    margin-top: 50px;
+  }
+  .card-style {
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  .highlight-card {
+    background-color: #ffdc00;
+    color: #333;
+    padding: 1.5rem;
+  }
+  .practice-set {
+    background-color: #fce4f8;
+  }
+  .course-card {
+    background-color: #e0f7f4;
+  }
+  .section-title {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  footer {
+    background: #f1f1f1;
+    padding: 1rem;
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
+  .nav-item img {
+    height: 30px;
+    border-radius: 50%;
+  }

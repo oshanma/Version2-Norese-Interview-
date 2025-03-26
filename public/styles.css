@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #34a853;
+    --background-color: #f8f9fa;
+    --text-color: #202124;
+    --border-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.dashboard {
+    padding: 2rem 0;
+}
+
+.welcome-message {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.tracks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.track-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.track-card:hover {
+    transform: translateY(-4px);
+}
+
+.track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.track-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.track-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.track-icon.fast {
+    background-color: #e8f0fe;
+    color: var(--primary-color);
+}
+
+.track-icon.mastery {
+    background-color: #e6f4ea;
+    color: var(--secondary-color);
+}
+
+.track-lessons {
+    color: #5f6368;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.track-button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.track-button.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.track-button.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.track-button:hover {
+    opacity: 0.9;
+}
+
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.curriculum-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.curriculum-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e8f0fe;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.curriculum-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.curriculum-content p {
+    font-size: 0.875rem;
+    color: #5f6368;
+}
+
+.help-section {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.help-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.help-section p {
+    color: #5f6368;
+    margin-bottom: 2rem;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.help-card {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.help-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.help-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.help-card a:hover {
+    text-decoration: underline;
+} 
